@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>JavaScript - take thoughts</title>
+    <title>C Language - Take Thoughts</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,14 +11,14 @@
 
 
     <meta name="author" content="ivicel" />
-    <meta name="keywords" content="JavaScript" />
+    <meta name="keywords" content="C Language" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="take thoughts" />
+        <meta property="og:site_name" content="Take Thoughts" />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="take thoughts"/>
+        <meta property="og:title" content="Take Thoughts"/>
         <meta property="og:url" content=".."/>
-        <meta property="og:description" content="take thoughts"/>
+        <meta property="og:description" content="Take Thoughts"/>
 
 
     <!-- Bootstrap -->
@@ -28,8 +28,6 @@
     <link href="../theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
 
-        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="take thoughts ATOM Feed"/>
 
 
 
@@ -47,18 +45,21 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="../" class="navbar-brand">
-take thoughts            </a>
+Take Thoughts            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="../pages/about.html">
-                             About
-                          </a></li>
-                        <li >
-                            <a href="../category/javascript.html">Javascript</a>
+                        <li class="active">
+                            <a href="../category/c-language.html">C language</a>
                         </li>
                         <li >
-                            <a href="../category/notes.html">Notes</a>
+                            <a href="../category/data-structure-and-algorithms.html">Data structure and algorithms</a>
+                        </li>
+                        <li >
+                            <a href="../category/database.html">Database</a>
+                        </li>
+                        <li >
+                            <a href="../category/javascript.html">Javascript</a>
                         </li>
                         <li >
                             <a href="../category/python.html">Python</a>
@@ -76,28 +77,79 @@ take thoughts            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="../javascriptyuan-xing.html">JavaScript原型</a></h2>
-                <div class="summary"><h4>对象属性特征</h4>
-<p>1.数据属性
-<code>[[Configurable]]</code> 能否通过 <code>delete</code> 删除属性从而重新定义属性，能否修改属性，或者能否把属性修改为访问器属性
-<code>[[Enumerable]]</code> 能否通过 <code>for-in</code> 循环返回属性
-<code>[[Writable]]</code> 能否修改属性的值
-<code>[[Value]]</code> 属性的数据值</p>
-<p>2.访问器属性
-<code>[[Configurable]]</code> 能否通过 <code>delete</code> 删除属性从而重新定义属性，能否修改属性，或者能否把属性修改为数据属性
-<code>[[Enumerable]]</code> 能否通过 <code>for-in</code> 循环返回属性
-<code>[[Get]]</code> 在读取属性时调用的函数
-<code>[[Set]]</code> 在写入属性时调用的函数</p>
-<h4>对象属性查找</h4>
-<p>每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。</p>
-<p>搜索首先从对象实例本身开始。如果在实例中找到了具有给定名字的属性，则返
-回该属性的值；</p>
-<p>如果没有找到，则继续搜索指针指向的原型对象，在原型对象中查找具有给定名字的属性。</p>
-<hr>
-<h4>判断属性是否为对象本身属性或是在原型链中</h4>
-<p><code>hasOwnProperty()</code> 方法断访问是属性是否是在实例中</p>
-<p><code>in</code> 操作符会在通过对象能够访问给富属性时返回 <code>true …</code></p>
-                    <a class="btn btn-default btn-xs" href="../javascriptyuan-xing.html">more ...</a>
+                <h2><a href="../c-yu-yan-jian-ji.html">C 语言简记</a></h2>
+                <div class="summary"><p>First C program</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello C!!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="1"><strong>1. 注释</strong></h4>
+<div class="highlight"><pre><span></span><span class="cm">/* </span>
+<span class="cm"> *</span>
+<span class="cm"> * 注释不能嵌套 </span>
+<span class="cm"> *  </span>
+<span class="cm"> */</span>
+</pre></div>
+
+
+<h4 id="2"><strong>2. 关键字、保留字</strong></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto</code></td>
+<td><code>else</code></td>
+<td><code>long</code></td>
+<td><code>switch</code></td>
+<td><code>break</code></td>
+</tr>
+<tr>
+<td><code>enum</code></td>
+<td><code>register</code></td>
+<td><code>typedef</code></td>
+<td><code>case</code></td>
+<td><code>extern</code></td>
+</tr>
+<tr>
+<td><code>union</code></td>
+<td><code>char</code></td>
+<td><code>float</code></td>
+<td><code>short</code></td>
+<td><code>unsigned</code></td>
+</tr>
+<tr>
+<td><code>const</code></td>
+<td><code>for</code></td>
+<td><code>signed</code></td>
+<td><code>void</code></td>
+<td><code>continue</code></td>
+</tr>
+<tr>
+<td><code>goto</code></td>
+<td><code>sizeof</code></td>
+<td><code>volatile</code></td>
+<td><code>default</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>if</code></td>
+<td><code>static</code></td>
+<td><code>while</code></td>
+<td><code>do …</code></td></tr></tbody></table>
+                    <a class="btn btn-default btn-xs" href="../c-yu-yan-jian-ji.html">more ...</a>
                 </div>
             </article>
             <hr/>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>JavaScript原型 - take thoughts</title>
+    <title>javascript 面向对象 - Take Thoughts</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,22 +9,19 @@
 
 
 
-<link rel="canonical" href="./javascriptyuan-xing.html">
+<link rel="canonical" href="./javascript-mian-xiang-dui-xiang.html">
 
-        <meta name="author" content="Ivicel" />
-        <meta name="keywords" content="JavaScript,原型" />
+        <meta name="author" content="ivicel" />
         <meta name="description" content="对象属性特征 1.数据属性 [[Configurable]] 能否通过 delete 删除属性从而重新定义属性，能否修改属性，或者能否把属性修改为访问器属性 [[Enumerable]] 能否通过 for-in 循环返回属性 [[Writable]] 能否修改属性的值 [[Value]] 属性的数据值 2.访问器属性 [[Configurable]] 能否通过 delete 删除属性从而重新定义属性，能否修改属性，或者能否把属性修改为数据属性 [[Enumerable]] 能否通过 for-in 循环返回属性 [[Get]] 在读取属性时调用的函数 [[Set]] 在写入属性时调用的函数 对象属性查找 每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。 搜索首先从对象实例本身开始。如果在实例中找到了具有给定名字的属性，则返 回该属性的值； 如果没有找到，则继续搜索指针指向的原型对象，在原型对象中查找具有给定名字的属性。 判断属性是否为对象本身属性或是在原型链中 hasOwnProperty() 方法断访问是属性是否是在实例中 in 操作符会在通过对象能够访问给富属性时返回 true …" />
 
-        <meta property="og:site_name" content="take thoughts" />
+        <meta property="og:site_name" content="Take Thoughts" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="JavaScript原型"/>
-        <meta property="og:url" content="./javascriptyuan-xing.html"/>
+        <meta property="og:title" content="javascript 面向对象"/>
+        <meta property="og:url" content="./javascript-mian-xiang-dui-xiang.html"/>
         <meta property="og:description" content="对象属性特征 1.数据属性 [[Configurable]] 能否通过 delete 删除属性从而重新定义属性，能否修改属性，或者能否把属性修改为访问器属性 [[Enumerable]] 能否通过 for-in 循环返回属性 [[Writable]] 能否修改属性的值 [[Value]] 属性的数据值 2.访问器属性 [[Configurable]] 能否通过 delete 删除属性从而重新定义属性，能否修改属性，或者能否把属性修改为数据属性 [[Enumerable]] 能否通过 for-in 循环返回属性 [[Get]] 在读取属性时调用的函数 [[Set]] 在写入属性时调用的函数 对象属性查找 每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。 搜索首先从对象实例本身开始。如果在实例中找到了具有给定名字的属性，则返 回该属性的值； 如果没有找到，则继续搜索指针指向的原型对象，在原型对象中查找具有给定名字的属性。 判断属性是否为对象本身属性或是在原型链中 hasOwnProperty() 方法断访问是属性是否是在实例中 in 操作符会在通过对象能够访问给富属性时返回 true …"/>
-        <meta property="article:published_time" content="2017-02-23" />
-            <meta property="article:section" content="JavaScript" />
-            <meta property="article:tag" content="JavaScript" />
-            <meta property="article:tag" content="原型" />
-            <meta property="article:author" content="Ivicel" />
+        <meta property="article:published_time" content="2017-03-21" />
+            <meta property="article:section" content="Javascript" />
+            <meta property="article:author" content="ivicel" />
 
 
     <!-- Bootstrap -->
@@ -34,13 +31,9 @@
     <link href="./theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
 
-        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="take thoughts ATOM Feed"/>
 
 
 
-        <link href="./feeds/javascript.atom.xml" type="application/atom+xml" rel="alternate"
-              title="take thoughts JavaScript ATOM Feed"/>
 
 </head>
 <body>
@@ -55,18 +48,21 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-take thoughts            </a>
+Take Thoughts            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="./pages/about.html">
-                             About
-                          </a></li>
-                        <li class="active">
-                            <a href="./category/javascript.html">Javascript</a>
+                        <li >
+                            <a href="./category/c-language.html">C language</a>
                         </li>
                         <li >
-                            <a href="./category/notes.html">Notes</a>
+                            <a href="./category/data-structure-and-algorithms.html">Data structure and algorithms</a>
+                        </li>
+                        <li >
+                            <a href="./category/database.html">Database</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/javascript.html">Javascript</a>
                         </li>
                         <li >
                             <a href="./category/python.html">Python</a>
@@ -87,10 +83,10 @@ take thoughts            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./javascriptyuan-xing.html"
+                    <a href="./javascript-mian-xiang-dui-xiang.html"
                        rel="bookmark"
-                       title="Permalink to JavaScript原型">
-                        JavaScript原型
+                       title="Permalink to javascript 面向对象">
+                        javascript 面向对象
                     </a>
                 </h1>
             </header>
@@ -100,21 +96,17 @@ take thoughts            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-23T00:00:00+08:00"> Thu 23 February 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-21T00:00:00+08:00"> Tue 21 March 2017</time>
     </span>
 
 
 
 
 
-<span class="label label-default">Tags</span>
-	<a href="./tag/javascript.html">JavaScript</a>
-        /
-	<a href="./tag/yuan-xing.html">原型</a>
         
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h4>对象属性特征</h4>
+                <h4 id="_1">对象属性特征</h4>
 <p>1.数据属性
 <code>[[Configurable]]</code> 能否通过 <code>delete</code> 删除属性从而重新定义属性，能否修改属性，或者能否把属性修改为访问器属性
 <code>[[Enumerable]]</code> 能否通过 <code>for-in</code> 循环返回属性
@@ -125,23 +117,23 @@ take thoughts            </a>
 <code>[[Enumerable]]</code> 能否通过 <code>for-in</code> 循环返回属性
 <code>[[Get]]</code> 在读取属性时调用的函数
 <code>[[Set]]</code> 在写入属性时调用的函数</p>
-<h4>对象属性查找</h4>
+<h4 id="_2">对象属性查找</h4>
 <p>每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。</p>
 <p>搜索首先从对象实例本身开始。如果在实例中找到了具有给定名字的属性，则返
 回该属性的值；</p>
 <p>如果没有找到，则继续搜索指针指向的原型对象，在原型对象中查找具有给定名字的属性。</p>
-<hr>
-<h4>判断属性是否为对象本身属性或是在原型链中</h4>
+<hr />
+<h4 id="_3">判断属性是否为对象本身属性或是在原型链中</h4>
 <p><code>hasOwnProperty()</code> 方法断访问是属性是否是在实例中</p>
 <p><code>in</code> 操作符会在通过对象能够访问给富属性时返回 <code>true</code>，无论该属性存在于实例中还是原型中。</p>
-<hr>
-<h4>函数原型</h4>
+<hr />
+<h4 id="_4">函数原型</h4>
 <p>只要创建一个函数，就会根据一组特定的规则为该函数创建一个 <code>prototype</code> 属性，该属性指向函数的原型对象</p>
-<p>默认的情况下，所有的原型对象都会自动获得一个 <code>constructor</code> （构造函数) 属性，这个属性包含一个指向 <code>prototype</code> 属性所在函数的指针</p>
+<p>默认的情况下，所有的原型对象都会自动获得一个 <code>constructor</code> (构造函数) 属性，这个属性包含一个指向 <code>prototype</code> 属性所在函数的指针</p>
 <p>当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向函数的原型对象。ECMAScript 5把这个指针叫做 <code>[[prototype]]</code> ，通过<code>Object.getPrototypeOf()</code> 访问到这个指针，或是使用非标准属性 <code>__proto__</code></p>
-<p><img alt="函数原型" src="/images/函数原型指向.svg"></p>
-<hr>
-<h4>原型语法</h4>
+<p><img alt="函数原型" src="https://ivicel.github.io/images/函数原型.png" /></p>
+<hr />
+<h4 id="_5">原型语法</h4>
 <p><strong>写法一</strong></p>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">()</span> <span class="p">{</span>
 <span class="p">}</span>
@@ -169,7 +161,7 @@ take thoughts            </a>
 
 
 <p><strong>写法二</strong>相当把 <code>Person.prototype</code> 重新指向新的对象</p>
-<h4>1. 工厂模式</h4>
+<h4 id="1">1. 工厂模式</h4>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
     <span class="nx">o</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
@@ -186,7 +178,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>2.构造函数模式</h4>
+<h4 id="2">2.构造函数模式</h4>
 <div class="highlight"><pre><span></span>    <span class="nx">fucntion</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
@@ -203,7 +195,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>3.原型模式</h4>
+<h4 id="3">3.原型模式</h4>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">()</span> <span class="p">{</span>
 <span class="p">}</span>
 <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Nicholas&quot;</span><span class="p">;</span>
@@ -221,7 +213,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>4.组合使用构造函数模式和原型模式</h4>
+<h4 id="4">4.组合使用构造函数模式和原型模式</h4>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
@@ -247,7 +239,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>5.动态原型模式</h4>
+<h4 id="5">5.动态原型模式</h4>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
@@ -265,7 +257,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>6.寄生构造函数模式</h4>
+<h4 id="6">6.寄生构造函数模式</h4>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
     <span class="nx">o</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
@@ -283,9 +275,9 @@ take thoughts            </a>
 
 
 <blockquote>
-<p>构造函数在不返回值的情况下，默认会返回新对象实例
-而通过在构造函数的末尾添加一个 <code>return</code> 语句，可以重写调用构造函数时返回的值。
-这种模式可以在行列的情况下用来为对象创建构造函数。
+<p>构造函数在不返回值的情况下，默认会返回新对象实例<br />
+而通过在构造函数的末尾添加一个 <code>return</code> 语句，可以重写调用构造函数时返回的值。<br />
+这种模式可以在行列的情况下用来为对象创建构造函数。<br />
 假如想创建一个具有额外方法的特殊数组，由于不能直接修改 <code>Array</code> 构造函数，可以使用这种模式</p>
 </blockquote>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">SpecialArray</span><span class="p">()</span> <span class="p">{</span>
@@ -306,7 +298,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>7.稳妥构造函数模式</h4>
+<h4 id="7">7.稳妥构造函数模式</h4>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 
@@ -318,7 +310,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>原型链</h4>
+<h4 id="_6">原型链</h4>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">SuperType</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">property</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="c1">//something else</span>
@@ -343,19 +335,19 @@ take thoughts            </a>
 </pre></div>
 
 
-<p><img alt="函数继承原型链" src="/images/原型链.png"></p>
-<h4>原型链继承的问题</h4>
+<p><img alt="函数继承原型链" src="https://ivicel.github.io/images/函数继承原型链.png" /></p>
+<h4 id="_7">原型链继承的问题</h4>
 <ul>
 <li>创建子类型时，原先的超类型实例属性变成了子类的原型属性</li>
 <li>创建子类型时，没有办法在不影响所有对象实例的情况下给超类型的构造函数传递对数</li>
 </ul>
-<h4>继承方法</h4>
-<h5>1. 借用构造函数（伪造对象、经典继承）</h5>
+<h4 id="_8">继承方法</h4>
+<h5 id="1_1">1. 借用构造函数（伪造对象、经典继承）</h5>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">SuperType</span><span class="p">(</span><span class="nx">newColor</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">SubType() {</span>
+<span class="kd">function</span> <span class="nx">SubType</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">//继承了 SuperType</span>
     <span class="nx">SuperType</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
 <span class="p">}</span>
@@ -369,7 +361,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h5>2. 组合继承（伪经典继承）</h5>
+<h5 id="2_1">2. 组合继承（伪经典继承）</h5>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">SuperType</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">];</span>
@@ -404,7 +396,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h5>3. 原型式继承</h5>
+<h5 id="3_1">3. 原型式继承</h5>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">object</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">function</span> <span class="nx">F</span><span class="p">()</span> <span class="p">{}</span>
     <span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
@@ -478,7 +470,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h5>4. 寄生式继承</h5>
+<h5 id="4_1">4. 寄生式继承</h5>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">createAnother</span><span class="p">(</span><span class="nx">original</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">//通过调用函数创建一个新对象</span>
     <span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">original</span><span class="p">);</span>
@@ -504,7 +496,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h5>5. 寄生组合式继承</h5>
+<h5 id="5_1">5. 寄生组合式继承</h5>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">inheritPrototype</span><span class="p">(</span><span class="nx">subType</span><span class="p">,</span> <span class="nx">superType</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">//创建对象</span>
     <span class="kd">var</span> <span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">superType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
@@ -537,7 +529,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<p><img alt="寄生组合式继承" src="/images/寄生组合式继承.png"></p>
+<p><img alt="寄生组合式继承" src="https://ivicel.github.io/images/寄生组合式继承.png" /></p>
             </div>
             <!-- /.entry-content -->
         </article>

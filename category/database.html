@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>About this site - take thoughts</title>
+    <title>Database - Take Thoughts</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,16 @@
 
 
 
-<link rel="canonical" href="../pages/about-this-site.html">
 
-        <meta name="author" content="ivicel" />
-        <meta name="description" content="这是一个个人笔记站点而已" />
+    <meta name="author" content="ivicel" />
+    <meta name="keywords" content="Database" />
 
-    <meta property="og:site_name" content="take thoughts" />
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="About this site"/>
-    <meta property="og:url" content="../pages/about-this-site.html"/>
-    <meta property="og:description" content="这是一个个人笔记站点而已" />
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Take Thoughts" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Take Thoughts"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="Take Thoughts"/>
 
 
     <!-- Bootstrap -->
@@ -28,8 +28,6 @@
     <link href="../theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
 
-        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="take thoughts ATOM Feed"/>
 
 
 
@@ -47,18 +45,21 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="../" class="navbar-brand">
-take thoughts            </a>
+Take Thoughts            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li class="active"><a href="../pages/about-this-site.html">
-                             About this site
-                          </a></li>
                         <li >
-                            <a href="../category/javascript.html">Javascript</a>
+                            <a href="../category/c-language.html">C language</a>
                         </li>
                         <li >
-                            <a href="../category/notes.html">Notes</a>
+                            <a href="../category/data-structure-and-algorithms.html">Data structure and algorithms</a>
+                        </li>
+                        <li class="active">
+                            <a href="../category/database.html">Database</a>
+                        </li>
+                        <li >
+                            <a href="../category/javascript.html">Javascript</a>
                         </li>
                         <li >
                             <a href="../category/python.html">Python</a>
@@ -75,13 +76,36 @@ take thoughts            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <section id="content" class="body">
-        <h1 class="entry-title">About this site</h1>
-        
-        <div class="entry-content">
-            <p>这是一个个人笔记站点而已</p>
-        </div>
-    </section>
+            <article>
+                <h2><a href="../sql-jian-dan-su-ji.html">SQL 简单速记</a></h2>
+                <div class="summary"><h3 id="1"><strong>1. 检索数据</strong></h3>
+<div class="highlight"><pre><span></span><span class="cm">/* 单个列 */</span>
+<span class="k">SELECT</span> <span class="n">prod_name</span> <span class="k">FROM</span> <span class="n">Product</span><span class="p">;</span>
+<span class="cm">/* 多个列 */</span>
+<span class="k">SELECT</span> <span class="n">prod_id</span><span class="p">,</span> <span class="n">prod_name</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
+<span class="cm">/* 所有列 */</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
+<span class="cm">/* 检索不同值 */</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">vend_id</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
+<span class="cm">/* 条件限制 */</span>
+<span class="k">SELECT</span> <span class="n">prod_id</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">prod_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">prod_id</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
+<span class="cm">/* 注释 */</span>
+<span class="cm">/*...多行注释*/</span>
+<span class="c1">--- 单行注释</span>
+</pre></div>
+
+
+<h3 id="2"><strong>2. 排序</strong></h3>
+<div class="highlight"><pre><span></span><span class="cm">/* 排序条件不一定出现在选择结果中 */</span>
+
+<span class="cm">/* 排序单个列 */</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span>  <span class="n">Products</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">prod_id …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../sql-jian-dan-su-ji.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

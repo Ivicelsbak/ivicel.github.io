@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>自定义类 Custom classes - take thoughts</title>
+    <title>Python类内置魔术方法 - Take Thoughts</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,22 +9,19 @@
 
 
 
-<link rel="canonical" href="./zi-ding-yi-lei-custom-classes.html">
+<link rel="canonical" href="./pythonlei-nei-zhi-mo-zhu-fang-fa.html">
 
-        <meta name="author" content="Ivicel" />
-        <meta name="keywords" content="python,魔术方法" />
+        <meta name="author" content="ivicel" />
         <meta name="description" content="内置类特殊属性 object.__dict__ instance.__class__ class.__bases__ definition.__name__ definition.__qualname__ class.__mro__ class.mro() class.__subclasses__() 自定义类都有一个namespace，即一个字典对象来存储类的属性。C.x即表示C.__dict__[&#39;x&#39;]，当类C中不存在属性x，会依据继承顺序MRO表来查找该属性。 如若查找完基类后，依然找不到属性，才会调相应用C.__getattribute__()、C.__getattr__() class A(object): def __getattr__(self, name): print(&#39;call __getattr__ …" />
 
-        <meta property="og:site_name" content="take thoughts" />
+        <meta property="og:site_name" content="Take Thoughts" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="自定义类 Custom classes"/>
-        <meta property="og:url" content="./zi-ding-yi-lei-custom-classes.html"/>
+        <meta property="og:title" content="Python类内置魔术方法"/>
+        <meta property="og:url" content="./pythonlei-nei-zhi-mo-zhu-fang-fa.html"/>
         <meta property="og:description" content="内置类特殊属性 object.__dict__ instance.__class__ class.__bases__ definition.__name__ definition.__qualname__ class.__mro__ class.mro() class.__subclasses__() 自定义类都有一个namespace，即一个字典对象来存储类的属性。C.x即表示C.__dict__[&#39;x&#39;]，当类C中不存在属性x，会依据继承顺序MRO表来查找该属性。 如若查找完基类后，依然找不到属性，才会调相应用C.__getattribute__()、C.__getattr__() class A(object): def __getattr__(self, name): print(&#39;call __getattr__ …"/>
-        <meta property="article:published_time" content="2017-02-23" />
+        <meta property="article:published_time" content="2017-03-20" />
             <meta property="article:section" content="Python" />
-            <meta property="article:tag" content="python" />
-            <meta property="article:tag" content="魔术方法" />
-            <meta property="article:author" content="Ivicel" />
+            <meta property="article:author" content="ivicel" />
 
 
     <!-- Bootstrap -->
@@ -34,13 +31,9 @@
     <link href="./theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
 
-        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="take thoughts ATOM Feed"/>
 
 
 
-        <link href="./feeds/python.atom.xml" type="application/atom+xml" rel="alternate"
-              title="take thoughts Python ATOM Feed"/>
 
 </head>
 <body>
@@ -55,18 +48,21 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-take thoughts            </a>
+Take Thoughts            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="./pages/about.html">
-                             About
-                          </a></li>
                         <li >
-                            <a href="./category/javascript.html">Javascript</a>
+                            <a href="./category/c-language.html">C language</a>
                         </li>
                         <li >
-                            <a href="./category/notes.html">Notes</a>
+                            <a href="./category/data-structure-and-algorithms.html">Data structure and algorithms</a>
+                        </li>
+                        <li >
+                            <a href="./category/database.html">Database</a>
+                        </li>
+                        <li >
+                            <a href="./category/javascript.html">Javascript</a>
                         </li>
                         <li class="active">
                             <a href="./category/python.html">Python</a>
@@ -87,10 +83,10 @@ take thoughts            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./zi-ding-yi-lei-custom-classes.html"
+                    <a href="./pythonlei-nei-zhi-mo-zhu-fang-fa.html"
                        rel="bookmark"
-                       title="Permalink to 自定义类 Custom classes">
-                        自定义类 Custom classes
+                       title="Permalink to Python类内置魔术方法">
+                        Python类内置魔术方法
                     </a>
                 </h1>
             </header>
@@ -100,21 +96,17 @@ take thoughts            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-23T00:00:00+08:00"> Thu 23 February 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-20T00:00:00+08:00"> Mon 20 March 2017</time>
     </span>
 
 
 
 
 
-<span class="label label-default">Tags</span>
-	<a href="./tag/python.html">python</a>
-        /
-	<a href="./tag/mo-zhu-fang-fa.html">魔术方法</a>
         
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h3>内置类特殊属性</h3>
+                <h3 id="_1">内置类特殊属性</h3>
 <div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="vm">__dict__</span>
 
 <span class="n">instance</span><span class="o">.</span><span class="vm">__class__</span>
@@ -159,13 +151,13 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3><code>__slots__</code> 的特殊性</h3>
+<h3 id="__slots__"><code>__slots__</code> 的特殊性</h3>
 <blockquote>
 <p>类变量<code>__slots__</code> 可赋值 string, iterable，字符list</p>
 <p>定义<code>__slots__</code>变量后，类将不再使用<code>__dict__</code>来存储属性</p>
 <p>类不会自动生成<code>__dict__</code>和<code>__weakref__</code></p>
 </blockquote>
-<h3>对象方法</h3>
+<h3 id="_2">对象方法</h3>
 <p>类中的对象方法(instance method\bound method), 其方法名也存在<code>M.__dict__</code>中，对象方法有两个只读变量<code>mehtod.__self__</code>和<code>method.__func__</code>，当调用方法时<code>method(arg1, arg2)</code>时，等于调用<code>method.__func__(method.__self__, arg1, arg2)</code></p>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">m</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -176,7 +168,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>访问控制 <code>self.x</code></h3>
+<h3 id="selfx">访问控制 <code>self.x</code></h3>
 <div class="highlight"><pre><span></span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
 <span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -246,7 +238,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>自定义序列 self[x]</h3>
+<h3 id="selfx_1">自定义序列 self[x]</h3>
 <div class="highlight"><pre><span></span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>                       <span class="c1"># len() 方法</span>
 
 <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>              <span class="c1"># self[key]</span>
@@ -264,7 +256,7 @@ take thoughts            </a>
 
 
 <p>当类没有定义<code>__getitem__()</code>时，<code>self['x']</code>会产生<strong><code>Type Error</code>:object is not subscriptable</strong>, 定义<code>__getitem__()</code>后，类变成一个<strong>subscriptor</strong>，<code>self['x']</code>隐式调用<code>__getitem__()</code>。一般在普通的如<code>list</code>中，<code>x</code>不存在或错误会产生<code>KeyError</code>，超出范围则产生<code>IndexError</code></p>
-<h3>描述符对象</h3>
+<h3 id="_3">描述符对象</h3>
 <div class="highlight"><pre><span></span><span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">)</span>
 
 <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">)</span>
@@ -292,43 +284,43 @@ take thoughts            </a>
 <li>类绑定：<code>A.x</code>即<code>A.__dict__['x'].__get__(None, A)</code></li>
 <li>Super绑定(继承的类有类属性是描述符的实例对象)：<code>super(B, obj).m</code>查找<code>obj.__class__.__mro__</code>，当找到<code>A</code>类有<code>m</code>属性为描述符对象时调用<code>A.__dict__['m'].__get__(obj, obj.__class__)</code></li>
 </ol>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nx">example</span>
-<span class="err">#</span> <span class="nx">owner的类属性是一个decriptor的实例</span>
-<span class="kr">class</span> <span class="nx">A</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">def</span> <span class="nx">__get__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">instance</span><span class="p">,</span> <span class="nx">cls</span><span class="p">)</span><span class="o">:</span>
-        <span class="nx">print</span><span class="p">(</span><span class="s1">&#39;call A.__get__()&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="c1"># example</span>
+<span class="c1"># owner的类属性是一个decriptor的实例</span>
+<span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;call A.__get__()&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s1">&#39;Class A&#39;</span>
 
-<span class="kr">class</span> <span class="nx">B</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">x</span> <span class="o">=</span> <span class="nx">A</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
 
-<span class="err">#</span> <span class="nx">call</span> <span class="nx">A</span><span class="p">.</span><span class="nx">__get__</span><span class="p">()</span>
-<span class="err">#</span> <span class="s1">&#39;Class A&#39;</span> 
-<span class="nx">b</span> <span class="o">=</span> <span class="nx">B</span><span class="p">()</span>
-<span class="nx">print</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span>  
+<span class="c1"># call A.__get__()</span>
+<span class="c1"># &#39;Class A&#39; </span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>  
 
-<span class="err">##############################</span>
+<span class="c1">##############################</span>
 
-<span class="err">#</span> <span class="nx">owner的父类的属性是一个decriptor的实例</span>
-<span class="kr">class</span> <span class="nx">A</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">def</span> <span class="nx">__get__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">instance</span><span class="p">,</span> <span class="nx">cls</span><span class="p">)</span><span class="o">:</span>
-        <span class="nx">print</span><span class="p">(</span><span class="s1">&#39;call A.__get__()&#39;</span><span class="p">)</span>
+<span class="c1"># owner的父类的属性是一个decriptor的实例</span>
+<span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;call A.__get__()&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s1">&#39;Class A&#39;</span>
 
-<span class="kr">class</span> <span class="nx">B</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">x</span> <span class="o">=</span> <span class="nx">A</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
 
-<span class="kr">class</span> <span class="nx">C</span><span class="p">(</span><span class="nx">B</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">pass</span>
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
 
-<span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="s1">&#39;call A.__get__()&#39;</span><span class="p">)</span>
-<span class="err">#</span> <span class="s1">&#39;Class A&#39;</span>
-<span class="nx">c</span> <span class="o">=</span> <span class="nx">C</span><span class="p">()</span>
-<span class="nx">print</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span>
+<span class="c1"># print(&#39;call A.__get__()&#39;)</span>
+<span class="c1"># &#39;Class A&#39;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 
-<h4>对象属性访问原理</h4>
+<h4 id="_4">对象属性访问原理</h4>
 <ul>
 <li>访问顺序：</li>
 </ul>
@@ -394,7 +386,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h4>描述符(descriptor)举例</h4>
+<h4 id="descriptor">描述符(descriptor)举例</h4>
 <blockquote>
 <p>内置 property 的实现</p>
 </blockquote>
@@ -452,8 +444,8 @@ take thoughts            </a>
 </pre></div>
 
 
-<hr>
-<h3>比较操作符</h3>
+<hr />
+<h3 id="_5">比较操作符</h3>
 <div class="highlight"><pre><span></span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>     <span class="c1"># ==</span>
 
 <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>     <span class="c1"># !=</span>
@@ -468,7 +460,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>数值操作符</h3>
+<h3 id="_6">数值操作符</h3>
 <p>.1 一元操作符</p>
 <div class="highlight"><pre><span></span><span class="n">__post__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>          <span class="c1"># 取正 +some_object</span>
 
@@ -588,7 +580,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>类的表示</h3>
+<h3 id="_7">类的表示</h3>
 <div class="highlight"><pre><span></span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -601,7 +593,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>反射</h3>
+<h3 id="_8">反射</h3>
 <div class="highlight"><pre><span></span><span class="c1"># isinstance(instance, class) 方法</span>
 <span class="fm">__instancecheck__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span>       
 
@@ -610,12 +602,12 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>抽象基类</h3>
+<h3 id="_9">抽象基类</h3>
 <div class="highlight"><pre><span></span>
 </pre></div>
 
 
-<h3>可调用的对象</h3>
+<h3 id="_10">可调用的对象</h3>
 <div class="highlight"><pre><span></span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">args</span><span class="o">...</span><span class="p">])</span>
 
 <span class="k">class</span> <span class="nc">A</span><span class="p">():</span>
@@ -627,7 +619,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>上下文管理器</h3>
+<h3 id="_11">上下文管理器</h3>
 <div class="highlight"><pre><span></span><span class="c1"># 使用 with 声明时调用，返回值即为 as 后的东西</span>
 <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
@@ -636,7 +628,7 @@ take thoughts            </a>
 </pre></div>
 
 
-<h3>拷贝</h3>
+<h3 id="_12">拷贝</h3>
 <div class="highlight"><pre><span></span><span class="n">__copy__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 <span class="n">__deepcopy__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memodict</span><span class="o">=</span><span class="p">)</span>

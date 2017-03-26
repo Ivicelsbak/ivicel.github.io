@@ -21,7 +21,7 @@
         <meta property="og:url" content="./mastering-algorithms-with-c-1-lian-biao.html"/>
         <meta property="og:description" content="函数的实现在判断元素结点是否为头结点或尾结点时, 并未使用 list-&gt;head list-&gt;tail 指针 而是判断该结点是否存在前一结点element-&gt;prev或后一结点element-&gt;next是否为空 这样从而导致在向指定结点前面或后面插入元素时, 不能过早将element-prev element-&gt;next 指向新结点new_element 以避免判断头尾结点失败 单链表(Linked List) /* list.h */ #ifndef LIST_H #define LIST_H #include &lt;stdlib.h&gt; /* 链表元素结构 */ typedef struct ListElmt_ { /* 指向实际数据地址 */ void *data; /* 指向下一个结点元素的指针 */ struct ListElmt_ *next; }ListElmt; /* 链表的结构定义 */ typedef struct List_ …"/>
         <meta property="article:published_time" content="2017-03-21" />
-            <meta property="article:section" content="Data-Structure-Algorithms" />
+            <meta property="article:section" content="Data Structure and Algorithms" />
             <meta property="article:tag" content="算法" />
             <meta property="article:tag" content="数据结构" />
             <meta property="article:tag" content="C" />
@@ -57,11 +57,20 @@ Take Thoughts            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                        <li >
+                            <a href="./category/c-language.html">C language</a>
+                        </li>
                         <li class="active">
-                            <a href="./category/data-structure-algorithms.html">Data-structure-algorithms</a>
+                            <a href="./category/data-structure-and-algorithms.html">Data structure and algorithms</a>
                         </li>
                         <li >
-                            <a href="./category/misc.html">Misc</a>
+                            <a href="./category/database.html">Database</a>
+                        </li>
+                        <li >
+                            <a href="./category/javascript.html">Javascript</a>
+                        </li>
+                        <li >
+                            <a href="./category/python.html">Python</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -115,7 +124,7 @@ Take Thoughts            </a>
 而是判断该结点是否存在前一结点<code>element-&gt;prev</code>或后一结点<code>element-&gt;next</code>是否为空<br>
 这样从而导致在向指定结点前面或后面插入元素时, 不能过早将<code>element-prev</code> <code>element-&gt;next</code> 指向新结点<code>new_element</code> 以避免判断头尾结点失败</p>
 </blockquote>
-<h4><strong>单链表</strong>(Linked List)</h4>
+<h4 id="linked-list"><strong>单链表</strong>(Linked List)</h4>
 <div class="highlight"><pre><span></span><span class="cm">/* list.h */</span>
 
 <span class="cp">#ifndef LIST_H</span>
@@ -181,7 +190,7 @@ Take Thoughts            </a>
 
 
 <p>元素插入链表</p>
-<p><img alt="元素插入链表" src="https://ivicel.github.io/images/元素插入链表.png"></p>
+<p><img alt="元素插入链表" src="https://ivicel.github.io/images/元素插入链表.png" /></p>
 <p>函数实现</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -289,7 +298,7 @@ Take Thoughts            </a>
 <li>如果有可用的页表，<code>alloc_frame</code> 返回其页表号码，并释放其<code>data</code>指向的内存以便令程序可能使用</li>
 <li>释放页表时，重新为页表元素数据申请一个内存，如果没有可用内存，释放失败</li>
 </ul>
-<p><img alt="页帧映射" src="leanote://file/getImage?fileId=58d1dc516bd3ac0c6c000001"></p>
+<p><img alt="页帧映射" src="https://ivicel.github.io/images/页表映射.png" /></p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;list.h&quot;</span><span class="cp"></span>
 
@@ -337,7 +346,7 @@ Take Thoughts            </a>
 <ul>
 <li><strong>双向链表</strong>(Doubly-Linked List)</li>
 </ul>
-<p><img alt="双向链表" src="leanote://file/getImage?fileId=58d2181f6bd3ac0c6c000002"></p>
+<p><img alt="双向链表" src="https://ivicel.github.io./images/双向链表.png" /></p>
 <p>头文件</p>
 <div class="highlight"><pre><span></span><span class="cm">/* dlist.h */</span>
 <span class="cp">#ifndef DLIST_H</span>
@@ -542,7 +551,7 @@ Take Thoughts            </a>
 <ul>
 <li><strong>循环链表</strong>(Circular Lists)</li>
 </ul>
-<p><img alt="循环链表" src="leanote://file/getImage?fileId=58d228966bd3ac0c6c000003"></p>
+<p><img alt="循环链表" src="https://ivicel.github.io/images/循环链表.png" /></p>
 <div class="highlight"><pre><span></span><span class="cm">/* clist.h */</span>
 <span class="cp">#ifndef CLIST_H</span>
 <span class="cp">#define CLIST_H</span>

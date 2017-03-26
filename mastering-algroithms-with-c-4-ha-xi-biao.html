@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Mastering Algroithms with C-4: 哈希表 - Take Thoughts</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./mastering-algroithms-with-c-4-ha-xi-biao.html">
+
+        <meta name="author" content="ivicel" />
+        <meta name="keywords" content="算法,C,集合,数据结构" />
+        <meta name="description" content="哈希表通过一种最有效的检索方法--散列来查找元素, 一个哈希表通过一个哈希函数, 在所有可能的键与槽位之间建立一张映射表. 理想的状态就是把不同键生成的哈希值互不相同, 但这会使得哈希表里的条目变得巨大, 而且条目中可能绝大多数是无用的. 所以, 通常哈希函数把一些不同的键映射到表中相同的槽位上, 这就会产生冲突, 一个好的哈希函数要最大限度的地减少冲突 链式哈希表(Chained Hash Table) 链式哈希表从根本上来说是由一组链表构成, 每个链表可以看成一个&#34;桶(bucket)&#34; 链式哈希表在插入元素时, 将其键传入一个哈希函数h(k), 函数通过散列的方式告知元素属于哪个&#34;桶&#34;,然后在相应的链表头插入元素 在查找或删除元素时, 用同样的方式先找到元素的&#34;桶&#34;, 然后遍历相应的链表 每个链表并不限制包含元素的个数, 但是表如果变得很大, 性能就会变得很低 冲突的发生 当两个键通过哈希函数到表里相同的位置时, 这两个键就产生的冲突. 链式哈希表当产生冲突时, 它就把元素放到冲突发生的&#34;桶&#34;中. 这就产生一个问题, 如果总是发生这样的冲突, 那么这个桶就会越来越大, 里面的元素越来越多 理想的情况是, 把元素平均和随机的分配到每一个 …" />
+
+        <meta property="og:site_name" content="Take Thoughts" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Mastering Algroithms with C-4: 哈希表"/>
+        <meta property="og:url" content="./mastering-algroithms-with-c-4-ha-xi-biao.html"/>
+        <meta property="og:description" content="哈希表通过一种最有效的检索方法--散列来查找元素, 一个哈希表通过一个哈希函数, 在所有可能的键与槽位之间建立一张映射表. 理想的状态就是把不同键生成的哈希值互不相同, 但这会使得哈希表里的条目变得巨大, 而且条目中可能绝大多数是无用的. 所以, 通常哈希函数把一些不同的键映射到表中相同的槽位上, 这就会产生冲突, 一个好的哈希函数要最大限度的地减少冲突 链式哈希表(Chained Hash Table) 链式哈希表从根本上来说是由一组链表构成, 每个链表可以看成一个&#34;桶(bucket)&#34; 链式哈希表在插入元素时, 将其键传入一个哈希函数h(k), 函数通过散列的方式告知元素属于哪个&#34;桶&#34;,然后在相应的链表头插入元素 在查找或删除元素时, 用同样的方式先找到元素的&#34;桶&#34;, 然后遍历相应的链表 每个链表并不限制包含元素的个数, 但是表如果变得很大, 性能就会变得很低 冲突的发生 当两个键通过哈希函数到表里相同的位置时, 这两个键就产生的冲突. 链式哈希表当产生冲突时, 它就把元素放到冲突发生的&#34;桶&#34;中. 这就产生一个问题, 如果总是发生这样的冲突, 那么这个桶就会越来越大, 里面的元素越来越多 理想的情况是, 把元素平均和随机的分配到每一个 …"/>
+        <meta property="article:published_time" content="2017-03-24" />
+            <meta property="article:section" content="Data Structure and Algorithms" />
+            <meta property="article:tag" content="算法" />
+            <meta property="article:tag" content="C" />
+            <meta property="article:tag" content="集合" />
+            <meta property="article:tag" content="数据结构" />
+            <meta property="article:author" content="ivicel" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+Take Thoughts            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="./category/c-language.html">C language</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/data-structure-and-algorithms.html">Data structure and algorithms</a>
+                        </li>
+                        <li >
+                            <a href="./category/database.html">Database</a>
+                        </li>
+                        <li >
+                            <a href="./category/javascript.html">Javascript</a>
+                        </li>
+                        <li >
+                            <a href="./category/python.html">Python</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./mastering-algroithms-with-c-4-ha-xi-biao.html"
+                       rel="bookmark"
+                       title="Permalink to Mastering Algroithms with C-4: 哈希表">
+                        Mastering Algroithms with C-4: 哈希表
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-03-24T00:00:00+08:00"> Fri 24 March 2017</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/suan-fa.html">算法</a>
+        /
+	<a href="./tag/c.html">C</a>
+        /
+	<a href="./tag/ji-he.html">集合</a>
+        /
+	<a href="./tag/shu-ju-jie-gou.html">数据结构</a>
+        
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>哈希表通过一种最有效的检索方法--<strong>散列</strong>来查找元素, 一个哈希表通过一个哈希函数, 在所有可能的键与槽位之间建立一张映射表. 理想的状态就是把不同键生成的哈希值互不相同, 但这会使得哈希表里的条目变得巨大, 而且条目中可能绝大多数是无用的.</p>
+<p>所以, 通常哈希函数把一些不同的键映射到表中相同的槽位上, 这就会产生冲突, 一个好的哈希函数要最大限度的地减少冲突</p>
+<h3 id="chained-hash-table">链式哈希表(Chained Hash Table)</h3>
+<p>链式哈希表从根本上来说是由一组链表构成, 每个链表可以看成一个"桶(bucket)"</p>
+<p>链式哈希表在插入元素时, 将其键传入一个<strong>哈希函数</strong><code>h(k)</code>, 函数通过散列的方式告知元素属于哪个"桶",然后在相应的<strong>链表头</strong>插入元素</p>
+<p>在查找或删除元素时, 用同样的方式先找到元素的"桶", 然后遍历相应的链表</p>
+<p>每个链表并不限制包含元素的个数, 但是表如果变得很大, 性能就会变得很低</p>
+<p><img alt="链式哈希表" src="https://ivicel.github.io/images/链式哈希表.png" /></p>
+<h4 id="_1">冲突的发生</h4>
+<p>当两个键通过哈希函数到表里相同的位置时, 这两个键就产生的冲突.</p>
+<p>链式哈希表当产生冲突时, 它就把元素放到冲突发生的"桶"中. 这就产生一个问题, 如果总是发生这样的冲突, 那么这个桶就会越来越大, 里面的元素越来越多</p>
+<p>理想的情况是, 把元素平均和随机的分配到每一个"桶"中, 这种称为<strong>均匀散列</strong>(uniform hash). 实际情况只能是无限接近平均分配</p>
+<p>一个重要的因素--<strong>负载因子</strong>(load factor)</p>
+<p><code>a = n / m</code> 其中, <code>n</code>是元素个数, <code>m</code>是"桶"的个数</p>
+<p>最好的情怀是每个链表的中的元素个数接近负载因子的数值</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
+                <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
+              </ul>
+            </li>
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org/" target="_blank">
+                Jinja2
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="#" target="_blank">
+                You can modify those links in your config file
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 ivicel
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
