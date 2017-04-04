@@ -79,12 +79,12 @@ Take Thoughts            </a>
             <article>
                 <h2><a href="../matserting-algorithms-with-c-7-tu.html">Matserting Algorithms with C-7: 图</a></h2>
                 <div class="summary"><h3 id="graphs">图(Graphs)</h3>
-<p><a href="https://ivicel.github.io/images/图.png">!图</a></p>
+<p><img alt="图" src="https://ivicel.github.io/images/图.png" /></p>
 <p>图由<strong>顶点</strong>(vertices)和<strong>边</strong>(edges)组成, 图的边分为<strong>有向</strong>和<strong>无向</strong></p>
 <p>图表示为<code>G=(V, E)</code>, V 代表顶点的集合, E 和 V 是一种二元关系</p>
 <blockquote>
 <p>有向图: V={1, 2, 3, 4} 和 E = {(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 2), (3, 4)}</p>
-<p>无向图: V={1, 2 …</p></blockquote>
+<p>无向图: V={1, 2, 3 …</p></blockquote>
                     <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-7-tu.html">more ...</a>
                 </div>
             </article>
@@ -97,9 +97,9 @@ Take Thoughts            </a>
 <p>堆的实现通常存储在一个连续的数组中, 从根结点为<code>0</code>位置, 任意结点<code>i</code>其父结点的的位置是<code>int((i-2)/2)</code>, 舍弃掉小数部分</p>
 <p>堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长.</p>
 <p>向堆中插入节点</p>
-<p><a href="https://ivicel.github.io/images/向堆中插入结点.png">!向堆中插入结点</a></p>
+<p><img alt="向堆中插入结点" src="https://ivicel.github.io/images/向堆中插入结点.png" /></p>
 <p>删除堆顶点</p>
-<p><a href="https://ivicel.github.io/images/删除堆顶点.png">!删除堆顶点</a></p>
+<p><img alt="删除堆顶点" src="https://ivicel.github.io/images/删除堆顶点.png" /></p>
 <div class="highlight"><pre><span></span><span class="cm">/* heap.h */</span>
 <span class="cp">#ifndef HEAP_H</span>
 <span class="cp">#define HEAP_H</span>
@@ -107,7 +107,7 @@ Take Thoughts            </a>
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">Heap_</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
     <span class="cm">/* 调用者自定义比较函数, 符合返回 &gt; 0, 不符合返回 &lt; 0, 相等返回 = 0 */</span>
-    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const …</span></pre></div>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">key1 …</span></pre></div>
                     <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-6-dui-he-you-xian-dui-lie.html">more ...</a>
                 </div>
             </article>

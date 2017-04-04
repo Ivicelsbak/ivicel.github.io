@@ -13,13 +13,13 @@
 
         <meta name="author" content="ivicel" />
         <meta name="keywords" content="算法,C,集合,数据结构" />
-        <meta name="description" content="堆 (Heap) 堆是一棵二叉树, 子结点存储的值比父结点的值大称为最小值堆, 子结点存储的值比父结点小称为最大值堆 堆是有序的排列, 父子结点存在大小关系, 兄弟结点不存在直接的关系, 堆是快速取得最大/小值的数据结构 堆的实现通常存储在一个连续的数组中, 从根结点为0位置, 任意结点i其父结点的的位置是int((i-2)/2), 舍弃掉小数部分 堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长. 向堆中插入节点 !向堆中插入结点 删除堆顶点 !删除堆顶点 /* heap.h */ #ifndef HEAP_H #define HEAP_H /* 堆的数据结构 */ typedef struct Heap_ { int size; /* 调用者自定义比较函数, 符合返回 &gt; 0, 不符合返回 &lt; 0, 相等返回 = 0 */ int (*compare)(const …" />
+        <meta name="description" content="堆 (Heap) 堆是一棵二叉树, 子结点存储的值比父结点的值大称为最小值堆, 子结点存储的值比父结点小称为最大值堆 堆是有序的排列, 父子结点存在大小关系, 兄弟结点不存在直接的关系, 堆是快速取得最大/小值的数据结构 堆的实现通常存储在一个连续的数组中, 从根结点为0位置, 任意结点i其父结点的的位置是int((i-2)/2), 舍弃掉小数部分 堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长. 向堆中插入节点 删除堆顶点 /* heap.h */ #ifndef HEAP_H #define HEAP_H /* 堆的数据结构 */ typedef struct Heap_ { int size; /* 调用者自定义比较函数, 符合返回 &gt; 0, 不符合返回 &lt; 0, 相等返回 = 0 */ int (*compare)(const void *key1 …" />
 
         <meta property="og:site_name" content="Take Thoughts" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Matserting Algorithms with C-6: 堆和优先队列"/>
         <meta property="og:url" content="./matserting-algorithms-with-c-6-dui-he-you-xian-dui-lie.html"/>
-        <meta property="og:description" content="堆 (Heap) 堆是一棵二叉树, 子结点存储的值比父结点的值大称为最小值堆, 子结点存储的值比父结点小称为最大值堆 堆是有序的排列, 父子结点存在大小关系, 兄弟结点不存在直接的关系, 堆是快速取得最大/小值的数据结构 堆的实现通常存储在一个连续的数组中, 从根结点为0位置, 任意结点i其父结点的的位置是int((i-2)/2), 舍弃掉小数部分 堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长. 向堆中插入节点 !向堆中插入结点 删除堆顶点 !删除堆顶点 /* heap.h */ #ifndef HEAP_H #define HEAP_H /* 堆的数据结构 */ typedef struct Heap_ { int size; /* 调用者自定义比较函数, 符合返回 &gt; 0, 不符合返回 &lt; 0, 相等返回 = 0 */ int (*compare)(const …"/>
+        <meta property="og:description" content="堆 (Heap) 堆是一棵二叉树, 子结点存储的值比父结点的值大称为最小值堆, 子结点存储的值比父结点小称为最大值堆 堆是有序的排列, 父子结点存在大小关系, 兄弟结点不存在直接的关系, 堆是快速取得最大/小值的数据结构 堆的实现通常存储在一个连续的数组中, 从根结点为0位置, 任意结点i其父结点的的位置是int((i-2)/2), 舍弃掉小数部分 堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长. 向堆中插入节点 删除堆顶点 /* heap.h */ #ifndef HEAP_H #define HEAP_H /* 堆的数据结构 */ typedef struct Heap_ { int size; /* 调用者自定义比较函数, 符合返回 &gt; 0, 不符合返回 &lt; 0, 相等返回 = 0 */ int (*compare)(const void *key1 …"/>
         <meta property="article:published_time" content="2017-04-01" />
             <meta property="article:section" content="Data Structure Algorithms" />
             <meta property="article:tag" content="算法" />
@@ -125,9 +125,9 @@ Take Thoughts            </a>
 <p>堆的实现通常存储在一个连续的数组中, 从根结点为<code>0</code>位置, 任意结点<code>i</code>其父结点的的位置是<code>int((i-2)/2)</code>, 舍弃掉小数部分</p>
 <p>堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长.</p>
 <p>向堆中插入节点</p>
-<p><a href="https://ivicel.github.io/images/向堆中插入结点.png">!向堆中插入结点</a></p>
+<p><img alt="向堆中插入结点" src="https://ivicel.github.io/images/向堆中插入结点.png" /></p>
 <p>删除堆顶点</p>
-<p><a href="https://ivicel.github.io/images/删除堆顶点.png">!删除堆顶点</a></p>
+<p><img alt="删除堆顶点" src="https://ivicel.github.io/images/删除堆顶点.png" /></p>
 <div class="highlight"><pre><span></span><span class="cm">/* heap.h */</span>
 <span class="cp">#ifndef HEAP_H</span>
 <span class="cp">#define HEAP_H</span>
