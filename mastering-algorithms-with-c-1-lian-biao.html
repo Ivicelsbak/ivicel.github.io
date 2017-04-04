@@ -21,7 +21,7 @@
         <meta property="og:url" content="./mastering-algorithms-with-c-1-lian-biao.html"/>
         <meta property="og:description" content="函数的实现在判断元素结点是否为头结点或尾结点时, 并未使用 list-&gt;head list-&gt;tail 指针 而是判断该结点是否存在前一结点element-&gt;prev或后一结点element-&gt;next是否为空 这样从而导致在向指定结点前面或后面插入元素时, 不能过早将element-prev element-&gt;next 指向新结点new_element 以避免判断头尾结点失败 单链表(Linked List) /* list.h */ #ifndef LIST_H #define LIST_H #include &lt;stdlib.h&gt; /* 链表元素结构 */ typedef struct ListElmt_ { /* 指向实际数据地址 */ void *data; /* 指向下一个结点元素的指针 */ struct ListElmt_ *next; }ListElmt; /* 链表的结构定义 */ typedef struct List_ …"/>
         <meta property="article:published_time" content="2017-03-21" />
-            <meta property="article:section" content="Data Structure and Algorithms" />
+            <meta property="article:section" content="Data Structure Algorithms" />
             <meta property="article:tag" content="算法" />
             <meta property="article:tag" content="数据结构" />
             <meta property="article:tag" content="C" />
@@ -60,11 +60,8 @@ Take Thoughts            </a>
                         <li >
                             <a href="./category/c-language.html">C language</a>
                         </li>
-                        <li >
-                            <a href="./category/data-structure-algorithms.html">Data structure algorithms</a>
-                        </li>
                         <li class="active">
-                            <a href="./category/data-structure-and-algorithms.html">Data structure and algorithms</a>
+                            <a href="./category/data-structure-algorithms.html">Data structure algorithms</a>
                         </li>
                         <li >
                             <a href="./category/database.html">Database</a>
