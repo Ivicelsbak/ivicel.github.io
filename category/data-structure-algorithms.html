@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>栈 - Take Thoughts</title>
+    <title>Data Structure Algorithms - Take Thoughts</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
 
     <meta name="author" content="ivicel" />
-    <meta name="keywords" content="栈" />
+    <meta name="keywords" content="Data Structure Algorithms" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Take Thoughts" />
@@ -52,7 +52,7 @@ Take Thoughts            </a>
                         <li >
                             <a href="../category/c-language.html">C language</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="../category/data-structure-algorithms.html">Data structure algorithms</a>
                         </li>
                         <li >
@@ -80,38 +80,72 @@ Take Thoughts            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="../matering-algorithms-with-c-2-zhan-he-dui-lie.html">Matering Algorithms with C-2: 栈和队列</a></h2>
-                <div class="summary"><p>栈: 后进先出(LIFO)</p>
-<p>队列: 先进先出(FIFO)</p>
-<ul>
-<li>栈和队列的一些应用<ol>
-<li>信号量: 同步多个进程访问共享资源</li>
-<li>事件处理</li>
-<li>X Window 系统, 使用队列来存储事件</li>
-<li>生产者-消费者问题, 生产者向队列中写入数据, 消费从队列中读出数据</li>
-<li>C 函数的调用, 函数的调用会将一些信息压入程序栈, 程序结束时将信息出栈</li>
-</ol>
-</li>
-</ul>
-<p>栈最常用的是使用链表来实现, 以下是栈的抽象数据类型头文件</p>
-<div class="highlight"><pre><span></span><span class="cm">/* stack.h */</span>
-<span class="cp">#ifndef STACK_H</span>
-<span class="cp">#define STACK_H</span>
-
-<span class="cm">/* 元素结点 */</span>
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">StackElmt_</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">StackElmt_</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
-<span class="p">}</span><span class="n">StackElmt</span><span class="p">;</span>
-
-<span class="cm">/* 栈结构 */</span>
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Stack_</span> <span class="p">{</span>
-    <span class="cm">/* 栈大小 */</span>
+                <h2><a href="../matserting-algorithms-with-c-7-tu.html">Matserting Algorithms with C-7: 图</a></h2>
+                <div class="summary"><h3 id="graphs">图(Graphs)</h3>
+<p><a href="https://ivicel.github.io/images/图.png">!图</a></p>
+<p>图由<strong>顶点</strong>(vertices)和<strong>边</strong>(edges)组成, 图的边分为<strong>有向</strong>和<strong>无向</strong></p>
+<p>图表示为<code>G=(V, E)</code>, V 代表顶点的集合, E 和 V 是一种二元关系</p>
+<blockquote>
+<p>有向图: V={1, 2, 3, 4} 和 E = {(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 2), (3, 4)}</p>
+<p>无向图: V={1, 2 …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-7-tu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../matserting-algorithms-with-c-6-dui-he-you-xian-dui-lie.html">Matserting Algorithms with C-6: 堆和优先队列</a></h2>
+                <div class="summary"><h3 id="heap">堆 (Heap)</h3>
+<p>堆是一棵二叉树, 子结点存储的值比父结点的值大称为最小值堆, 子结点存储的值比父结点小称为最大值堆</p>
+<p>堆是有序的排列, 父子结点存在大小关系, 兄弟结点不存在直接的关系, 堆是快速取得最大/小值的数据结构</p>
+<p>堆的实现通常存储在一个连续的数组中, 从根结点为<code>0</code>位置, 任意结点<code>i</code>其父结点的的位置是<code>int((i-2)/2)</code>, 舍弃掉小数部分</p>
+<p>堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长.</p>
+<p>向堆中插入节点</p>
+<p><a href="https://ivicel.github.io/images/向堆中插入结点.png">!向堆中插入结点</a></p>
+<p>删除堆顶点</p>
+<p><a href="https://ivicel.github.io/images/删除堆顶点.png">!删除堆顶点</a></p>
+<div class="highlight"><pre><span></span><span class="cm">/* heap.h */</span>
+<span class="cp">#ifndef HEAP_H</span>
+<span class="cp">#define HEAP_H</span>
+<span class="cm">/* 堆的数据结构 */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Heap_</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
-    <span class="cm">/* 指向栈顶结点 */</span>
-    <span class="n">StackElmt</span> <span class="o">*</span><span class="n">top</span><span class="p">;</span>
-    <span class="kt">void …</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="../matering-algorithms-with-c-2-zhan-he-dui-lie.html">more ...</a>
+    <span class="cm">/* 调用者自定义比较函数, 符合返回 &gt; 0, 不符合返回 &lt; 0, 相等返回 = 0 */</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-6-dui-he-you-xian-dui-lie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../matserting-algorithms-with-c-5-shu.html">Matserting Algorithms with C-5: 树</a></h2>
+                <div class="summary"><h3 id="binary-tree">二叉树(Binary tree)</h3>
+<p><img alt="二叉树" src="https://ivicel.github.io/images/二叉树.png" /></p>
+<p><strong>先序遍历</strong>: 根结点-&gt;左子结点-&gt;右子结点</p>
+<p><strong>中序遍历</strong>: 左子结点-&gt;根结点-&gt;右子结点</p>
+<p><strong>后序遍历</strong>: 左子结点-&gt;右子结点-&gt;根结占</p>
+<p><strong>层级遍历</strong>: 树根结点-&gt;下层左结点-&gt;该层右结点 (广度优先方法)</p>
+<p><img alt="树的遍历方法" src="https://ivicel.github.io/images/树的遍历方法.png" /></p>
+<blockquote>
+<p>树的平衡是指在添加结点到下一层是必须保证本层的结点是满额的</p>
+</blockquote>
+<p>二叉的接口定义</p>
+<div class="highlight"><pre><span></span><span class="cm">/* 这里不没包含插入和删除非叶子结点的操作, 这些操作需要根据具体的应用将树中的其他结点做相应的调整 */</span>
+<span class="cm">/* bitree.h */</span>
+<span class="cp">#ifndef BITREE_H</span>
+<span class="cp">#define BITREE_H</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cm">/* 节点结构 */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">BiTreeNode_</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+    <span class="cm">/* 左结点 */</span>
+    <span class="k">struct</span> <span class="n">BiTreeNode_</span> <span class="o">*</span><span class="n">left</span><span class="p">;</span>
+    <span class="cm">/* 右结点 */</span>
+    <span class="k">struct</span> <span class="n">BiTreeNode_</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+<span class="p">}</span><span class="n">BiTreeNode</span><span class="p">;</span>
+
+<span class="cm">/* 二叉树结构 */</span>
+<span class="k">typedef …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-5-shu.html">more ...</a>
                 </div>
             </article>
             <hr/>

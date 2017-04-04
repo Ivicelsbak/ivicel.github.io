@@ -52,6 +52,9 @@ Take Thoughts            </a>
                             <a href="../category/c-language.html">C language</a>
                         </li>
                         <li >
+                            <a href="../category/data-structure-algorithms.html">Data structure algorithms</a>
+                        </li>
+                        <li >
                             <a href="../category/data-structure-and-algorithms.html">Data structure and algorithms</a>
                         </li>
                         <li >
@@ -75,6 +78,76 @@ Take Thoughts            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="../matserting-algorithms-with-c-7-tu.html">Matserting Algorithms with C-7: 图</a></h2>
+                <div class="summary"><h3 id="graphs">图(Graphs)</h3>
+<p><a href="https://ivicel.github.io/images/图.png">!图</a></p>
+<p>图由<strong>顶点</strong>(vertices)和<strong>边</strong>(edges)组成, 图的边分为<strong>有向</strong>和<strong>无向</strong></p>
+<p>图表示为<code>G=(V, E)</code>, V 代表顶点的集合, E 和 V 是一种二元关系</p>
+<blockquote>
+<p>有向图: V={1, 2, 3, 4} 和 E = {(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 2), (3, 4)}</p>
+<p>无向图: V={1, 2 …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-7-tu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../matserting-algorithms-with-c-6-dui-he-you-xian-dui-lie.html">Matserting Algorithms with C-6: 堆和优先队列</a></h2>
+                <div class="summary"><h3 id="heap">堆 (Heap)</h3>
+<p>堆是一棵二叉树, 子结点存储的值比父结点的值大称为最小值堆, 子结点存储的值比父结点小称为最大值堆</p>
+<p>堆是有序的排列, 父子结点存在大小关系, 兄弟结点不存在直接的关系, 堆是快速取得最大/小值的数据结构</p>
+<p>堆的实现通常存储在一个连续的数组中, 从根结点为<code>0</code>位置, 任意结点<code>i</code>其父结点的的位置是<code>int((i-2)/2)</code>, 舍弃掉小数部分</p>
+<p>堆是左平衡的树, 随着结点的增加, 树会逐级从左至右增长.</p>
+<p>向堆中插入节点</p>
+<p><a href="https://ivicel.github.io/images/向堆中插入结点.png">!向堆中插入结点</a></p>
+<p>删除堆顶点</p>
+<p><a href="https://ivicel.github.io/images/删除堆顶点.png">!删除堆顶点</a></p>
+<div class="highlight"><pre><span></span><span class="cm">/* heap.h */</span>
+<span class="cp">#ifndef HEAP_H</span>
+<span class="cp">#define HEAP_H</span>
+<span class="cm">/* 堆的数据结构 */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Heap_</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+    <span class="cm">/* 调用者自定义比较函数, 符合返回 &gt; 0, 不符合返回 &lt; 0, 相等返回 = 0 */</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-6-dui-he-you-xian-dui-lie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../matserting-algorithms-with-c-5-shu.html">Matserting Algorithms with C-5: 树</a></h2>
+                <div class="summary"><h3 id="binary-tree">二叉树(Binary tree)</h3>
+<p><img alt="二叉树" src="https://ivicel.github.io/images/二叉树.png" /></p>
+<p><strong>先序遍历</strong>: 根结点-&gt;左子结点-&gt;右子结点</p>
+<p><strong>中序遍历</strong>: 左子结点-&gt;根结点-&gt;右子结点</p>
+<p><strong>后序遍历</strong>: 左子结点-&gt;右子结点-&gt;根结占</p>
+<p><strong>层级遍历</strong>: 树根结点-&gt;下层左结点-&gt;该层右结点 (广度优先方法)</p>
+<p><img alt="树的遍历方法" src="https://ivicel.github.io/images/树的遍历方法.png" /></p>
+<blockquote>
+<p>树的平衡是指在添加结点到下一层是必须保证本层的结点是满额的</p>
+</blockquote>
+<p>二叉的接口定义</p>
+<div class="highlight"><pre><span></span><span class="cm">/* 这里不没包含插入和删除非叶子结点的操作, 这些操作需要根据具体的应用将树中的其他结点做相应的调整 */</span>
+<span class="cm">/* bitree.h */</span>
+<span class="cp">#ifndef BITREE_H</span>
+<span class="cp">#define BITREE_H</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cm">/* 节点结构 */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">BiTreeNode_</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+    <span class="cm">/* 左结点 */</span>
+    <span class="k">struct</span> <span class="n">BiTreeNode_</span> <span class="o">*</span><span class="n">left</span><span class="p">;</span>
+    <span class="cm">/* 右结点 */</span>
+    <span class="k">struct</span> <span class="n">BiTreeNode_</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+<span class="p">}</span><span class="n">BiTreeNode</span><span class="p">;</span>
+
+<span class="cm">/* 二叉树结构 */</span>
+<span class="k">typedef …</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="../matserting-algorithms-with-c-5-shu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="../mastering-algroithms-with-c-4-ha-xi-biao.html">Mastering Algroithms with C-4: 哈希表</a></h2>
                 <div class="summary"><p>哈希表通过一种最有效的检索方法--<strong>散列</strong>来查找元素, 一个哈希表通过一个哈希函数, 在所有可能的键与槽位之间建立一张映射表. 理想的状态就是把不同键生成的哈希值互不相同, 但这会使得哈希表里的条目变得巨大, 而且条目中可能绝大多数是无用的.</p>
@@ -334,36 +407,16 @@ Take Thoughts            </a>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="../sql-jian-dan-su-ji.html">SQL 简单速记</a></h2>
-                <div class="summary"><h3 id="1"><strong>1. 检索数据</strong></h3>
-<div class="highlight"><pre><span></span><span class="cm">/* 单个列 */</span>
-<span class="k">SELECT</span> <span class="n">prod_name</span> <span class="k">FROM</span> <span class="n">Product</span><span class="p">;</span>
-<span class="cm">/* 多个列 */</span>
-<span class="k">SELECT</span> <span class="n">prod_id</span><span class="p">,</span> <span class="n">prod_name</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
-<span class="cm">/* 所有列 */</span>
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
-<span class="cm">/* 检索不同值 */</span>
-<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">vend_id</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
-<span class="cm">/* 条件限制 */</span>
-<span class="k">SELECT</span> <span class="n">prod_id</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">prod_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="k">SELECT</span> <span class="n">prod_id</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
-<span class="cm">/* 注释 */</span>
-<span class="cm">/*...多行注释*/</span>
-<span class="c1">--- 单行注释</span>
-</pre></div>
 
-
-<h3 id="2"><strong>2. 排序</strong></h3>
-<div class="highlight"><pre><span></span><span class="cm">/* 排序条件不一定出现在选择结果中 */</span>
-
-<span class="cm">/* 排序单个列 */</span>
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span>  <span class="n">Products</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">prod_id …</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="../sql-jian-dan-su-ji.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="../author/ivicel.html">1</a></li>
+                    <li class=""><a
+                            href="../author/ivicel2.html">2</a></li>
+                <li class="next"><a
+                        href="../author/ivicel2.html">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
